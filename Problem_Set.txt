@@ -1,0 +1,8 @@
+[test-01]
+
+Short Problem Description: Compute Fibonacci Number.
+
+Input: Integer t followed by t many integers.
+Output: For every integer i, compute i^th Fibonacci.
+Display the sum of all the Fibonacci numbers
+computed.
