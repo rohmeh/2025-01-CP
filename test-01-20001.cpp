@@ -17,19 +17,20 @@ long long computeFibonacci(int n) {
 }
 
 int main() {
-    int t;
+    //Critical line
     cout << "20001 \t Donald Knuth\t";
+    
+    int t;
     cin >> t;   
-
+    long long sum_fib = 0;
+    
     vector<int> testCases(t);
     for (int i = 0; i < t; ++i) {
         cin >> testCases[i];
+        sum_fib += computeFibonacci(testCases[i]);
     }
 
-    for (int i = 0; i < t; ++i) {
-        cout << computeFibonacci(testCases[i]) << "\t";
-    }
-
+    cout << sum_fib;
     cout << endl;
     return 0;
 }
