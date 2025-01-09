@@ -18,7 +18,7 @@ long long computeFibonacci(int n) {
 
 int main() {
     //Critical line
-    cout << "20001 \t Donald Knuth\t";
+    cout << "20001\t Donald Knuth\t";
     
     int t;
     cin >> t;   
@@ -27,9 +27,13 @@ int main() {
     vector<int> testCases(t);
     for (int i = 0; i < t; ++i) {
         cin >> testCases[i];
-        sum_fib += computeFibonacci(testCases[i]);
+        
     }
 
+    for (int i = 0; i < t; ++i) {
+        sum_fib += computeFibonacci(testCases[i]);    
+    }
+    
     cout << sum_fib;
     cout << endl;
     return 0;
