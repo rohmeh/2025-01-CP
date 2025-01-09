@@ -10,7 +10,7 @@ bool can_empty_coin_piles(int a, int b) {
 }
 
 int main() {
-	cout << "22372 \t" << "Vivek Kumar \t";
+	cout << "20001 \t" << "Alan Turing \t";
 
 	int t = 0;
 	cin >> t;
