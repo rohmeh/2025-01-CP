@@ -1,8 +1,11 @@
-[test-01]
+Name	Description
 
-Short Problem Description: Compute Fibonacci Number.
-
-Input: Integer t followed by t many integers.
-Output: For every integer i, compute i^th Fibonacci.
-Display the sum of all the Fibonacci numbers
-computed.
+test-01	Compute Fibonacci
+quiz-11	Collatz Conjecture Sequence
+quiz-12	Largest Prime Factor
+quiz-13	Coin Piles
+test-02	Missing Number
+test-03	Maximum Subarray Sum
+test-04	Increasing Array
+test-05	Two Knights
+test-06	Repetitions
