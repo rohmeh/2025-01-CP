@@ -18,17 +18,31 @@ Output: Print the sum of missing numbers in the specified format.
 #include <vector>
 using namespace std;
 
-int main() {    
+int main() {
     int t;
-    cin >> t;   
-    long long sum_missing_nrs = 0;
+    cin >> t; 
     
-    /*
+    long long sum_missing_nrs = 0; 
 
-    Code is not complete
-    */
-    
-    //Critical line
+    for (int test = 0; test < t; ++test) {
+        int n;
+        cin >> n; 
+
+        // Read the n-1 numbers into a vector
+        vector<int> numbers(n - 1);
+        long long total_sum = 0;
+
+        for (int i = 0; i < n - 1; ++i) {
+            cin >> numbers[i];
+            total_sum += numbers[i];
+        }
+
+        long long expected_sum = n * (n + 1) / 2;
+        sum_missing_nrs += (expected_sum - total_sum);
+    }
+
     cout << "20001\t" << "Donald Knuth\t" << sum_missing_nrs <<"\n";
+    cout << endl;
+
     return 0;
 }
