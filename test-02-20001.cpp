@@ -37,7 +37,7 @@ int main() {
             total_sum += numbers[i];
         }
 
-        long long expected_sum = (long long)n * (n + 1) / 2;
+        long long expected_sum = n * (n + 1) / 2;
         sum_missing_nrs += (expected_sum - total_sum);
     }
 
