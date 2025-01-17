@@ -12,20 +12,42 @@ Output: Print the sum of maximum subarray sum in each of arrays.
 */
 
 #include <iostream>
+#include <sstream>
 #include <vector>
 using namespace std;
 
-int main() {    
-    int t;
-    cin >> t;   
-    long long sum_missing_nrs = 0;
-    
-    /*
+int main() {
+    int t; 
+    cin >> t;
+    cin.ignore();
 
-    Code is not complete
-    */
-    
-    //Critical line
-    cout << "20001\t" << "Donald Knuth\t" << sum_missing_nrs <<"\n";
+    long long sum_missing_nrs = 0; 
+
+    for (int i = 0; i < t; i++) {
+        string line;
+        getline(cin, line); 
+
+        stringstream ss(line);
+        vector<int> arr;
+        int num;
+
+        while (ss >> num) {
+            arr.push_back(num);
+        }
+
+        int max_sum = 0;
+        int current_sum = 0;
+
+        for (int val : arr) {
+            current_sum = max(val, current_sum + val);
+            max_sum = max(max_sum, current_sum);
+        }
+
+        sum_missing_nrs += max_sum;
+    }
+
+    // Critical line
+    cout << "20001\tDonald Knuth\t" << sum_missing_nrs << "\n";
+
     return 0;
 }
