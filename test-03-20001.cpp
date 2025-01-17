@@ -9,6 +9,9 @@ The first input line contains an integer t denoting the number of test cases.
 The following t lines contains values of array.
 
 Output: Print the sum of maximum subarray sum in each of arrays.
+
+Contributer: Pranjal Upadhyay
+git : PranjalUpadhyay7
 */
 
 #include <iostream>
