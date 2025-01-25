@@ -29,7 +29,7 @@ int main() {
     int t;
     cin >> t;
 
-    vector<int> testCases(t);
+    vector<int> testCases(t);// It declares vector
     for (int i = 0; i < t; ++i) {
         cin >> testCases[i];
     }
