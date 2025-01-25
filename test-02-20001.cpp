@@ -15,7 +15,7 @@ Output: Print the sum of missing numbers in the specified format.
 */
 
 #include <iostream>
-#include <vector>
+#include <vector> // this is added to bring back
 using namespace std;
 
 int main() {
