@@ -26,7 +26,7 @@ using namespace std;
 
 vector<pair<int,int>> moves;
 
-void TOH(int n, int source, int target, int auxiliary){
+void TOH(int n, int source, int target, int auxiliary){   
     if (n == 0){
         return;
     }
@@ -39,14 +39,14 @@ void TOH(int n, int source, int target, int auxiliary){
 }
 
 int main(){
-    cout << "20001 \t" << "Donald Knuth3 \t";
+    cout << "20001\t" << "Donald Knuth\t";
 
     int n;
     cin >> n;
 
     TOH(n,1,3,2);
 
-    cout << moves.size() << endl;
+    cout << moves.size() << endl;             // returns the minimum mumber of steps
 
 
     for(auto i : moves){
