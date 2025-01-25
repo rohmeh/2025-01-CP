@@ -20,21 +20,40 @@ After this, print k lines that describe the moves.
 Each line has two integers a and b: you move a disk from stack a to stack b. 
 */
 
-#include <iostream>
-#include <vector>
+#include<iostream>
+#include<vector>
 using namespace std;
 
-int main() {    
-    int t;
-    cin >> t;   
-    long long sum_missing_nrs = 0;
-    
-    /*
+vector<pair<int,int>> moves;
 
-    Code is not complete
-    */
-    
-    //Critical line
-    cout << "20001\t" << "Donald Knuth\t" << sum_missing_nrs <<"\n";
+void TOH(int n, int source, int target, int auxiliary){
+    if (n == 0){
+        return;
+    }
+
+    TOH(n-1,source,auxiliary,target);
+
+    moves.push_back({source,target});
+
+    TOH(n-1,auxiliary,target,source);
+}
+
+int main(){
+    cout << "20001 \t" << "Donald Knuth3 \t";
+
+    int n;
+    cin >> n;
+
+    TOH(n,1,3,2);
+
+    cout << moves.size() << endl;
+
+
+    for(auto i : moves){
+        cout << i.first << " " << i.second;
+        cout << endl;
+    }
+
+    cout << endl;
     return 0;
 }
