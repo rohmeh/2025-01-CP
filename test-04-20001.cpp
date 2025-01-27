@@ -13,50 +13,37 @@ The first input line contains an integer t denoting the number of test cases.
 The following t lines contains n values in an array.
 
 Output: Print the sum of minimum number of moves required in each case.
-Contributer: Jay Bharambe 22159
-git: jayb71
 */
 
 #include <iostream>
-#include<sstream>
 #include <vector>
+
 using namespace std;
 
-int calculate_minimum_moves(vector<int> arr, int n) {
-    int sum = 0;
-    for(int i=1; i<n; i++) {
-        if(arr[i] < arr[i-1]) {
-            sum += (arr[i-1]-arr[i]);
-        }
-    }
-    return sum;
-}
-
-int main() {    
+int main()
+{
     int t;
-    cin >> t;   
-    long long sum_missing_nrs = 0;
-    
-    while(t--) {
-        int n;
-        cin >> n;
-        cin.ignore();
-        
-        string line;
-        getline(cin, line);
-        stringstream ss(line);
-        vector<int> arr;
-        int num;
+    cin>>t;
 
-        while (ss >> num) {
-            arr.push_back(num);
+    while(t--)
+    {
+        long long n;cin>>n;
+        vector<long long> v;
+        long long x;
+        cin>>x;
+        v.push_back(x);
+        long long ans=0;
+        for(long long i=0;i<n-1;i++)
+        {
+            long long y;
+            cin>>y;
+            if(y<v.back())
+            {
+                ans+=(v.back()-y);
+            }
+            else v.push_back(y);
         }
-        
-        sum_missing_nrs += calculate_minimum_moves(arr,n);
-        
+        //Critical line
+        cout << "20001\t" << "Donald Knuth\t" << ans <<"\n";
     }
-    
-    //Critical line
-    cout << "20001\t" << "Donald Knuth\t" << sum_missing_nrs <<"\n";
-    return 0;
 }
