@@ -29,7 +29,6 @@ result=fact;
 int main(){
 int t;
 cout << "2001\t" << "Donald Kuth\n" ;
-cout << "No of test cases:";
 cin >> t;
 vector<int> testcases(t);
   for(int j=0; j<t; j++)
