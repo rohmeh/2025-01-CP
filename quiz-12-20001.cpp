@@ -28,7 +28,6 @@ int main() {
 
     int t;
     cin >> t;
-
     vector<int> testCases(t); //Declaring vector
     for (int i = 0; i < t; ++i) {
         cin >> testCases[i];
