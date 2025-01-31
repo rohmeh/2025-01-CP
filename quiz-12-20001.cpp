@@ -30,15 +30,15 @@ int main() {
     cin >> t;
     vector<int> testCases(t); //Declaring vector
     for (int i = 0; i < t; ++i) {
-        cin >> testCases[i];
+        cin >> testCases[i];//inputting the testcases
     }
-    
+
     int sum_largest_prime_factor = 0;
 
     for (int i = 0; i < t; ++i) {
         sum_largest_prime_factor += largestPrimeMultiple(testCases[i]);
     }
-    
+
     cout << sum_largest_prime_factor;
     cout << endl;
 
