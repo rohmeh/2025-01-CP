@@ -10,7 +10,7 @@ ll min_coins(ll n, ll sum, vector<ll>& coins){
     vector<ll> arr(sum + 1, INF);
     arr[0] = 0; // initialization so that if sum is 0, it returns 0
 
-    // dp[i] = minimum no of coins required to get sum i
+    // arr[i] = minimum no of coins required to get sum i
     for (int i = 1; i <= sum; i++) {
         for (int j = 0; j < n; j++) {
             if (coins[j] > i || arr[i - coins[j]] == INF)
@@ -78,7 +78,7 @@ int main(){
 //     vector<ll> arr(sum + 1, INF);
 //     arr[0] = 0; // initialization so that if sum is 0, it returns 0
 
-//     // dp[i] = minimum no of coins required to get sum i
+//     // arr[i] = minimum no of coins required to get sum i
 //     for (int i = 1; i <= sum; i++) {
 //         for (int j = 0; j < n; j++) {
 //             if (coins[j] > i || arr[i - coins[j]] == INF)
