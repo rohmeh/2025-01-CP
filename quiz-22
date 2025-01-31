@@ -1,0 +1,30 @@
+//TITLE-Counting number of trailing zeroes in factorial of a number.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+//------------function to calculate number of trailing zeroes-----------
+int trailing_zeroes(int n){ 
+int count=0;	
+  for(int i=5;n/i>=1;i=i*5){
+      count=count+n/i;
+  }
+return count;  
+}
+
+//----------------------------FOR TESTING--------------------------------
+int main(){
+int t;
+cout << "2001\t" << "Donald Kuth\n" ;
+cin >> t;
+vector<int> testcases(t);
+  for(int j=0; j<t; j++)
+    {
+	    cin >> testcases[j];
+	  }
+  for (int k=0; k<t; k++)
+    {
+	    cout << trailing_zeroes(testcases[k]) << "\n";
+	  }
+return 0;
+}
