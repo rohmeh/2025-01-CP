@@ -1,66 +1,117 @@
 #include <bits/stdc++.h>
+#include <vector>
+#define ll long long
+#define INF 1e10
+
 using namespace std;
 
-
-/*
-Problem name-Minimizing Coins
-reference-https://cses.fi/problemset/result/12017528/
-
-In Minimizing Coins problem, we are given a set of n coins , and a target sum of money x , and we are asked to construct the sum x using minimum number of coins. Any coin can be used multiple times.
-
-Input
-The first input line has two integers n and x: the number of coins and the desired sum of money.
-The second line has n distinct integers c1,c2,.....,cn: the value of each coin.
-
-Output
-one integer: the minimum number of coins. If it is not possible to produce the desired sum, print -1.
-
-This question can be solved using Dynamic Programming.
-*/
-
-
-
-
-int main() {
-
-    cout << "20001\t" << "Donald Knuth\t" << "Minimizing_coins" <<"\n";
-    cout << endl;
-
-    int n; // number of coins
-    long long int x; //target sum
-    cin >> n >> x;
-
-
-    vector<long long int> coins(n);
-    for (int i = 0; i < n; i++) {
-        cin >> coins[i];
-    }
-
-    //since in the question the max value of x is 1000000, the infinity is defined as 1000001.
-    const long long int INF = 1000001;
-
-    //initialising a vector with a large value except value[0] which is 0(our base case)
-    //value[x] is the minimum number of coins that is required to form the sum x 
-
-    vector<long long int> value(x + 1, INF);
-    value[0] = 0; //base case
-
-    //we iteratively construct the vector 'value' by recursively calculating from its smaller values , and storing its value.
-    for (int j = 1; j <= x; j++) {
-        for (int k = 0; k < n; k++) {
-            if (j - coins[k] >= 0) {
-                value[j] = min(value[j], value[j - coins[k]] + 1);
+// function to find the minimum amount of coins req.
+ll min_coins(ll n, ll sum, vector<ll>& coins){
+    vector<ll> arr(sum + 1, INF);
+    arr[0] = 0; // initialization so that if sum is 0, it returns 0
+    // dp[i] = minimum no of coins required to get sum i
+    // arr[i] = minimum no of coins required to get sum i
+    for (int i = 1; i <= sum; i++) {
+        for (int j = 0; j < n; j++) {
+            if (coins[j] > i || arr[i - coins[j]] == INF)
+                continue; // sum of coins exceeds the req. sum
+            else{    
+                arr[i] = min(arr[i], arr[i - coins[j]] + 1);
             }
         }
     }
+    
+    if (arr[sum] != INF)
+        return arr[sum]; // returns the minimum no of coins to make required sum 
 
-    //if the value[x] is still INF , it means it cannot be constructed and hence we print -1.
-    if (value[x] == INF) {
-        cout << -1 << endl;
-    } else {
-        cout << value[x] << endl;
+    return -1; // return -1, if the sum is not possible
+}
+
+int main(){
+    int t;
+    cin >> t;
+
+    int req_coins = 1;
+
+    vector <ll> answer;
+
+	for (int i = 0; i < t; ++i){
+        ll sum;
+        cin >> sum;
+        cin.ignore();
+
+		string line;
+		getline(cin, line);
+		stringstream ss(line);
+        
+        vector<ll> coins;
+        ll num;
+		while (ss >> num){
+			coins.push_back(num);
+        }
+    
+		req_coins = min_coins(coins.size(), sum, coins);
+		answer.push_back(req_coins);
+	}
+
+    cout << "20001\t Donald Knuth\n";
+    
+    // printing minimum coins for all test cases
+    for (auto j: answer){
+        cout << j << "\n";
     }
 
     return 0;
 }
 
+
+// // CSES Website submission code
+// #include <bits/stdc++.h>
+// #include <vector>
+// #define ll long long
+// #define INF 1e10
+
+// using namespace std;
+
+// // function to find the minimum amount of coins req.
+// ll min_coins(ll n, ll sum, vector<ll>& coins){
+//     vector<ll> arr(sum + 1, INF);
+//     arr[0] = 0; // initialization so that if sum is 0, it returns 0
+
+
+//     // dp[i] = minimum no of coins required to get sum i
+
+//     // arr[i] = minimum no of coins required to get sum i
+//     for (int i = 1; i <= sum; i++) {
+//         for (int j = 0; j < n; j++) {
+//             if (coins[j] > i || arr[i - coins[j]] == INF)
+//                 continue; // sum of coins exceeds the req. sum
+//             else{    
+//                 arr[i] = min(arr[i], arr[i - coins[j]] + 1);
+//             }
+//         }
+//     }
+    
+//     if (arr[sum] != INF)
+//         return arr[sum]; // returns the minimum no of coins to make required sum 
+
+//     return -1; // return -1, if the sum is not possible
+// }
+
+// int main(){
+//     int n, sum;
+//     cin >> n >> sum;
+
+//     vector<ll> coins(n);
+//     ll ans;
+
+//     for (int i = 0; i < n; i++) {
+//         cin >> coins[i];
+//     }
+
+//     ans = min_coins(n, sum, coins);
+//     cout << ans << endl;
+
+//     return 0;
+// }
+// }
